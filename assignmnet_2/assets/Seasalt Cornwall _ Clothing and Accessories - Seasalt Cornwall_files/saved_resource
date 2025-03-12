@@ -1,6 +1,0 @@
-/* common style list */
-.switcher.gleContainer.f32 {
-	display:none;
-} 
-
-/* operated countries style list */
