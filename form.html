@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .error{
+            border: 3px solid red;
+        }
+        .success{
+            border:3px solid green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Practice</h1>
+    <div>
+        <form action="" id="myForm" onsubmit="submitForm(event)">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" placeholder="John"><br>
+            <label for="email">email</label><br>
+            <input type="email" id="email" placeholder="exaple@email.com"><br>
+            <label for="city">City</label><br>
+            <input type="text" id="city" placeholder="London"><br>
+            <button type="submit">Submit</button>
+        </form>\
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum iste doloribus repudiandae deleniti impedit minima asperiores, saepe molestias, possimus, accusantium maxime quo laboriosam enim sapiente? Reprehenderit beatae qui eum voluptatem.</p>
+    </div>
+</body>
+<script>
+    function submitForm(event){
+        event.preventDefault();
+        let name =document.getElementById("name");
+        let email =document.getElementById("email");
+        let city =document.getElementById("city");
+        if(name.value === ""){
+            console.log("Invalid Form")
+            name.classList.add("error")
+
+        }else{
+            console.log("Valid Form")
+            name.classList.add("success")
+            name.classList.remove("error")
+        }
+        if(email.value === ""){
+            console.log("Invalid Form")
+            email.classList.add("error")
+           
+        }else{
+            console.log("Valid Form")
+            email.classList.add("success")
+            email.classList.remove("error")
+        }
+        if(city.value === ""){
+            console.log("Invalid Form")
+            city.classList.add("error")
+            
+        }else{
+            console.log("Valid Form")
+            city.classList.add("success")
+            city.classList.remove("error")
+        }
+    }
+</script>
+</html>
