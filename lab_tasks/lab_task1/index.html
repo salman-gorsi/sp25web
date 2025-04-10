@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasalt Cornwall</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="#">NEW</a></li>
+                <li><a href="#">WOMEN'S</a></li>
+                <li><a href="#">MEN'S</a></li>
+                <li><a href="#">GIFTS</a></li>
+                <li><a href="#">SALE</a></li>
+                <li><a href="#">SEASALT LIFE</a></li>
+            </ul>
+            <div class="logo">
+                <img src="assets/logo.svg" alt="SEASALT CORNWALL">
+            </div>
+            <div class="nav-right">
+                <div class="search-bar">
+                    <span class="search-icon">&#128269;</span>
+                    <input type="text" placeholder="What are you looking for?">
+                </div>
+                <div class="ship-to">
+                    Ship to <span class="uk-flag">🇬🇧</span>
+                </div>
+                <div class="account-icon">
+                    <span class="user-icon">👤</span>
+                </div>
+                <div class="cart-icon">
+                    <span class="bag-icon">🛒</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="offer-section">
+            <!-- Background image in HTML -->
+            <img src="assets/top-background.webp" alt="" class="background-image">
+            
+            <div class="offer-content">
+                <h1>Brighten Your Day</h1>
+                <div class="offers">
+                    <div class="offer">
+                        <h2>SAVE £10</h2>
+                        <p>When you spend £50</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="offer">
+                        <h2>SAVE £25</h2>
+                        <p>When you spend £100</p>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="offer">
+                        <h2>SAVE £40</h2>
+                        <p>When you spend £150</p>
+                    </div>
+                </div>
+                <div class="terms">
+                    <p>Includes Sale items | <a href="#">T&Cs apply</a></p>
+                </div>
+            </div>
+        </section>
+        
+        <nav class="category-nav">
+            <div class="category-links">
+                <a href="#">Dresses</a>
+                <a href="#">Tops</a>
+                <a href="#">Knitwear</a>
+                <a href="#">Outerwear</a>
+                <a href="#">Trousers</a>
+                <a href="#">Accessories</a>
+            </div>
+        </nav>
+
+        <section class="video-section">
+            <video autoplay loop muted class="background-video">
+                <source src="assets/1st-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-content">
+                <p class="collection-label">NEW COLLECTION</p>
+                <h2 class="collection-title">Primary Palette</h2>
+                <div class="collection-buttons">
+                    <a href="#" class="collection-button">NEW WOMEN'S</a>
+                    <a href="#" class="collection-button">NEW MEN'S</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-categories">
+            <div class="featured-container">
+                <div class="featured-item">
+                    <a href="#" class="featured-link">
+                        <img src="assets/dresses.avif" alt="Woman in blue and white patterned dress" class="featured-image">
+                        <span class="category-name">Dresses</span>
+                    </a>
+                </div>
+                <div class="featured-item">
+                    <a href="#" class="featured-link">
+                        <img src="assets/tops.avif" alt="Detail of shirt sleeve with decorative trim" class="featured-image">
+                        <span class="category-name">Tops</span>
+                    </a>
+                </div>
+                <div class="featured-item">
+                    <a href="#" class="featured-link">
+                        <img src="assets/knitwear.avif" alt="Woman in red and white striped sweater" class="featured-image">
+                        <span class="category-name">Knitwear</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel-slide active" id="slide1">
+                    <img src="assets/holiday-shop.avif" alt="Woman on beach in striped top" class="carousel-image">
+                    <div class="carousel-content">
+                        <p class="carousel-subtitle">THE</p>
+                        <h2 class="carousel-title">HOLIDAY<br>SHOP</h2>
+                        <a href="#" class="carousel-button">VIEW THE COLLECTION</a>
+                    </div>
+                    <button class="carousel-nav next" aria-label="Next slide">&#10095;</button>
+                </div>
+                
+                <div class="carousel-slide" id="slide2">
+                    <img src="assets/seasalt-linen.avif" alt="Red linen fabric and woman in red linen dress" class="carousel-image">
+                    <div class="carousel-content">
+                        <h2 class="carousel-title">Seasalt Linen</h2>
+                        <a href="#" class="carousel-button">SHOP NEW IN</a>
+                    </div>
+                    <button class="carousel-nav prev" aria-label="Previous slide">&#10094;</button>
+                    <button class="carousel-nav next" aria-label="Next slide">&#10095;</button>
+                </div>
+                
+                <div class="carousel-slide" id="slide3">
+                    <img src="assets/seasalt-men.avif" alt="Man in casual outfit by the sea" class="carousel-image">
+                    <div class="carousel-content">
+                        <h2 class="carousel-title">SEASALT<br>MEN</h2>
+                        <a href="#" class="carousel-button">SHOP MEN'S</a>
+                    </div>
+                    <button class="carousel-nav prev" aria-label="Previous slide">&#10094;</button>
+                </div>
+                
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" data-slide="1"></span>
+                    <span class="carousel-dot" data-slide="2"></span>
+                    <span class="carousel-dot" data-slide="3"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="choices-section">
+            <div class="choices-container">
+                <h2 class="choices-title">Making Our Choices Matter</h2>
+                <p class="choices-subtitle">
+                    <a href="#" class="blog-link">Visit the blog</a> for more style inspiration and stories from Cornwall.
+                </p>
+                
+                <div class="choices-grid">
+                    <div class="choices-item">
+                        <a href="#" class="choices-link">
+                            <img src="assets/findAShop.avif" alt="Seasalt Cornwall storefront" class="choices-image">
+                            <span class="choices-label">Find a Shop</span>
+                        </a>
+                    </div>
+                    
+                    <div class="choices-item">
+                        <a href="#" class="choices-link">
+                            <img src="assets/ImpactReport.avif" alt="Striped fabric detail" class="choices-image">
+                            <span class="choices-label">Read our impact report</span>
+                        </a>
+                    </div>
+                    
+                    <div class="choices-item">
+                        <a href="#" class="choices-link">
+                            <img src="assets/Inspiration.avif" alt="Person browsing in a bookstore" class="choices-image">
+                            <span class="choices-label">Inspiration</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="newsletter-container">
+                <h2 class="newsletter-title">Join Seasalt Friends</h2>
+                <p class="newsletter-subtitle">
+                    Join our community and hear more about our new collections, competitions and share our love of Cornwall.
+                </p>
+                
+                <div class="newsletter-form-container">
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-button">SIGN UP NOW</button>
+                    </form>
+                </div>
+                
+                <div class="newsletter-privacy">
+                    <p class="privacy-text">
+                        By signing up to become a Seasalt Friend you agree to email marketing. For more information please read our <a href="#" class="privacy-link">privacy policy.</a>
+                    </p>
+                    <p class="privacy-text">
+                        This site is protected by reCAPTCHA and the Google <a href="#" class="privacy-link">Privacy Policy</a> and <a href="#" class="privacy-link">Terms of Service</a> apply.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo and B Corp Section -->
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="assets/logo-white.svg" alt="SEASALT CORNWALL" class="footer-logo-img">
+                </div>
+                <div class="bcorp-badge">
+                    <div class="bcorp-logo">
+                        <img src="assets/bcorp-logo.svg" alt="B Corporation Certified" class="bcorp-img">
+                    </div>
+                    <div class="bcorp-text">
+                        <p>This company meets high standards of social and environmental impact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Links Section -->
+            <div class="footer-links">
+                <!-- Need Help Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Need Help?</h3>
+                    <ul class="footer-list">
+                        <li><a href="#">Delivery</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Knitwear Care Guide</a></li>
+                        <li><a href="#">Rain Buying Guide</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Check Gift Card Balance</a></li>
+                        <li><a href="#">Student Discount</a></li>
+                    </ul>
+                </div>
+
+                <!-- About Seasalt Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">About Seasalt</h3>
+                    <ul class="footer-list">
+                        <li><a href="#">Our Customers</a></li>
+                        <li><a href="#">Find a Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Work With Us</a></li>
+                        <li><a href="#">Read the Seasalt Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- My Account Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">My Account</h3>
+                    <ul class="footer-list">
+                        <li><a href="#">Log In or Register</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">My Details</a></li>
+                        <li><a href="#">Request a Catalogue</a></li>
+                    </ul>
+                </div>
+
+                <!-- Technical & Legal Column -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">Technical & Legal</h3>
+                    <ul class="footer-list">
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy - using your data</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Gender Pay Gap Report</a></li>
+                        <li><a href="#">Modern Slavery Statement</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Company Description -->
+            <div class="company-description">
+                <p>Seasalt - a Cornish fashion company. Clothing, footwear and accessories inspired by the creative and maritime heritage of Cornwall.</p>
+            </div>
+
+            <!-- Company Registration -->
+            <div class="company-registration">
+                <p>Registered Office: Unit 8 Falmouth Business Park, Bickland Water Road, Falmouth, Cornwall TR11 4SZ.</p>
+                <p>Company No: 02250964. © Seasalt Limited 2005-2023</p>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <a href="#" class="back-to-top">
+            <div class="top-button">
+                <span>TOP</span>
+            </div>
+        </a>
+    </footer>
+
+    <!-- Payment and Trust Section -->
+    <div class="payment-trust-section">
+        <div class="payment-trust-container">
+            <!-- Trustpilot Rating -->
+            <div class="trustpilot-rating">
+                <span class="rating-text">Excellent</span>
+                <div class="trustpilot-stars">
+                    <img src="assets/trustpilot-stars.png" alt="Trustpilot Rating" class="trustpilot-stars-img">
+                </div>
+                <img src="assets/trustpilot-logo.png" alt="Trustpilot" class="trustpilot-logo">
+            </div>
+
+            <!-- Payment Methods - UPDATED TO USE YOUR IMAGES -->
+            <div class="payment-methods">
+                <img src="assets/visa.svg" alt="Visa" class="payment-icon">
+                <img src="assets/mastercard.svg" alt="Mastercard" class="payment-icon">
+                <img src="assets/maestro.svg" alt="Maestro" class="payment-icon">
+                <img src="assets/amex.svg" alt="American Express" class="payment-icon">
+                <img src="assets/diners.svg" alt="Diners Club" class="payment-icon">
+                <img src="assets/apple_pay.svg" alt="Apple Pay" class="payment-icon">
+                <img src="assets/klarna.svg" alt="Klarna" class="payment-icon">
+                <img src="assets/paypal.svg" alt="PayPal" class="payment-icon">
+            </div>
+
+            <!-- Ship To Selector -->
+            <div class="ship-to-footer">
+                <span>Ship to:</span>
+                <img src="assets/uk-flag.png" alt="United Kingdom" class="flag-icon">
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Button -->
+    <div class="feedback-button">
+        <span class="feedback-text">Feedback</span>
+    </div>
+
+    <!-- Carousel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevButtons = document.querySelectorAll('.carousel-nav.prev');
+            const nextButtons = document.querySelectorAll('.carousel-nav.next');
+            let currentSlide = 0;
+            
+            // Function to show a specific slide
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Deactivate all dots
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Show the selected slide
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            // Set up dot click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // Set up prev button click handlers
+            prevButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    let newIndex = currentSlide - 1;
+                    if (newIndex < 0) newIndex = slides.length - 1;
+                    showSlide(newIndex);
+                });
+            });
+            
+            // Set up next button click handlers
+            nextButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    let newIndex = currentSlide + 1;
+                    if (newIndex >= slides.length) newIndex = 0;
+                    showSlide(newIndex);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
