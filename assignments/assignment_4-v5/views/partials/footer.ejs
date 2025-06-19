@@ -1,0 +1,132 @@
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo and B Corp Section -->
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="/assets/logo.svg" alt="SEASALT CORNWALL" class="footer-logo-img">
+            </div>
+            <div class="bcorp-badge">
+                <div class="bcorp-text">
+                    <p>This company meets high standards of social and environmental impact.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Links Section -->
+        <div class="footer-links">
+            <!-- Need Help Column -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Need Help?</h3>
+                <ul class="footer-list">
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Knitwear Care Guide</a></li>
+                    <li><a href="#">Rain Buying Guide</a></li>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Check Gift Card Balance</a></li>
+                    <li><a href="#">Student Discount</a></li>
+                </ul>
+            </div>
+
+            <!-- About Seasalt Column -->
+            <div class="footer-column">
+                <h3 class="footer-heading">About Seasalt</h3>
+                <ul class="footer-list">
+                    <li><a href="#">Our Customers</a></li>
+                    <li><a href="#">Find a Shop</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Work With Us</a></li>
+                    <li><a href="#">Read the Seasalt Blog</a></li>
+                </ul>
+            </div>
+
+            <!-- My Account Column -->
+            <div class="footer-column">
+                <h3 class="footer-heading">My Account</h3>
+                <ul class="footer-list">
+                    <% if (isAuthenticated) { %>
+                        <li><a href="/profile">My Profile</a></li>
+                        <li><a href="#">Track My Order</a></li>
+                        <li><a href="#">My Details</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    <% } else { %>
+                        <li><a href="/login">Log In</a></li>
+                        <li><a href="/register">Register</a></li>
+                    <% } %>
+                    <li><a href="#">Request a Catalogue</a></li>
+                </ul>
+            </div>
+
+            <!-- Technical & Legal Column -->
+            <div class="footer-column">
+                <h3 class="footer-heading">Technical & Legal</h3>
+                <ul class="footer-list">
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy - using your data</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Gender Pay Gap Report</a></li>
+                    <li><a href="#">Modern Slavery Statement</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Company Description -->
+        <div class="company-description">
+            <p>Seasalt - a Cornish fashion company. Clothing, footwear and accessories inspired by the creative and maritime heritage of Cornwall.</p>
+        </div>
+
+        <!-- Company Registration -->
+        <div class="company-registration">
+            <p>Registered Office: Unit 8 Falmouth Business Park, Bickland Water Road, Falmouth, Cornwall TR11 4SZ.</p>
+            <p>Company No: 02250964. © Seasalt Limited 2005-2023</p>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <div class="top-button">
+            <span>TOP</span>
+        </div>
+    </a>
+</footer>
+
+<!-- Payment and Trust Section -->
+<div class="payment-trust-section">
+    <div class="payment-trust-container">
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <img src="/assets/visa.svg" alt="Visa" class="payment-icon">
+            <img src="/assets/mastercard.svg" alt="Mastercard" class="payment-icon">
+            <img src="/assets/maestro.svg" alt="Maestro" class="payment-icon">
+            <img src="/assets/amex.svg" alt="American Express" class="payment-icon">
+            <img src="/assets/diners.svg" alt="Diners Club" class="payment-icon">
+            <img src="/assets/apple_pay.svg" alt="Apple Pay" class="payment-icon">
+            <img src="/assets/klarna.svg" alt="Klarna" class="payment-icon">
+            <img src="/assets/paypal.svg" alt="PayPal" class="payment-icon">
+        </div>
+
+        <!-- Ship To Selector -->
+        <div class="ship-to-footer">
+            <span>Ship to:</span>
+            <span class="uk-flag">🇬🇧</span>
+        </div>
+    </div>
+</div>
+
+<!-- Feedback Button -->
+<div class="feedback-button">
+    <span class="feedback-text">Feedback</span>
+</div>

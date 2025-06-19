@@ -1,0 +1,22 @@
+<a href="/cart" class="relative inline-flex items-center text-gray-700 hover:text-blue-600 transition-colors">
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5-6m0 0h12.5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"></path>
+  </svg>
+  <span class="ml-1 hidden sm:inline">Cart</span>
+  <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+</a>
+
+<script>
+// Update cart count on page load
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/cart/count')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('cart-count').textContent = data.count;
+      if (data.count === 0) {
+        document.getElementById('cart-count').style.display = 'none';
+      }
+    })
+    .catch(error => console.error('Error fetching cart count:', error));
+});
+</script>

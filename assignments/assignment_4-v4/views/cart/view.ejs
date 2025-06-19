@@ -1,0 +1,164 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Shopping Cart</h1>
+    
+    <% if (!cart || items.length === 0) { %>
+      <div class="text-center py-12">
+        <div class="mb-4">
+          <svg class="mx-auto h-24 w-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5-6m0 0h12.5M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6"></path>
+          </svg>
+        </div>
+        <h2 class="text-xl font-semibold text-gray-900 mb-2">Your cart is empty</h2>
+        <p class="text-gray-600 mb-6">Start shopping to add items to your cart</p>
+        <a href="/products" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+          Continue Shopping
+        </a>
+      </div>
+    <% } else { %>
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <h2 class="text-lg font-semibold">Cart Items</h2>
+        </div>
+        
+        <div class="divide-y divide-gray-200">
+          <% items.forEach(item => { %>
+            <div class="p-6 flex items-center space-x-4">
+              <div class="flex-shrink-0">
+                <img src="<%= item.product.image || '/assets/placeholder.jpg' %>" 
+                     alt="<%= item.product.name %>" 
+                     class="w-20 h-20 object-cover rounded-lg">
+              </div>
+              
+              <div class="flex-1 min-w-0">
+                <h3 class="text-lg font-medium text-gray-900 truncate">
+                  <%= item.product.name %>
+                </h3>
+                <p class="text-sm text-gray-500 mt-1">
+                  £<%= item.price.toFixed(2) %> each
+                </p>
+              </div>
+              
+              <div class="flex items-center space-x-3">
+                <div class="flex items-center border border-gray-300 rounded-lg">
+                  <button type="button" 
+                          class="quantity-btn px-3 py-1 text-gray-600 hover:text-gray-800"
+                          data-product-id="<%= item.product._id %>"
+                          data-action="decrease">
+                    -
+                  </button>
+                  <span class="px-3 py-1 border-l border-r border-gray-300 min-w-[3rem] text-center">
+                    <%= item.quantity %>
+                  </span>
+                  <button type="button" 
+                          class="quantity-btn px-3 py-1 text-gray-600 hover:text-gray-800"
+                          data-product-id="<%= item.product._id %>"
+                          data-action="increase">
+                    +
+                  </button>
+                </div>
+                
+                <div class="text-lg font-semibold text-gray-900 min-w-[5rem] text-right">
+                  £<%= (item.price * item.quantity).toFixed(2) %>
+                </div>
+                
+                <form method="POST" action="/cart/remove" class="inline">
+                  <input type="hidden" name="productId" value="<%= item.product._id %>">
+                  <button type="submit" 
+                          class="text-red-600 hover:text-red-800 p-1"
+                          onclick="return confirm('Remove this item from cart?')">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+        
+        <div class="px-6 py-4 bg-gray-50 border-t border-gray-200">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-lg font-semibold">Total:</span>
+            <span class="text-2xl font-bold text-blue-600" id="cart-total">
+              £<%= totalAmount.toFixed(2) %>
+            </span>
+          </div>
+          
+          <div class="flex space-x-4">
+            <a href="/products" 
+               class="flex-1 bg-gray-200 text-gray-800 text-center py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors">
+              Continue Shopping
+            </a>
+            <a href="/checkout" 
+               class="flex-1 bg-blue-600 text-white text-center py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+              Proceed to Checkout
+            </a>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const quantityBtns = document.querySelectorAll('.quantity-btn');
+  
+  quantityBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const productId = this.dataset.productId;
+      const action = this.dataset.action;
+      const quantitySpan = this.parentElement.querySelector('span');
+      let currentQuantity = parseInt(quantitySpan.textContent);
+      
+      if (action === 'increase') {
+        currentQuantity++;
+      } else if (action === 'decrease' && currentQuantity > 1) {
+        currentQuantity--;
+      } else if (action === 'decrease' && currentQuantity === 1) {
+        if (confirm('Remove this item from cart?')) {
+          currentQuantity = 0;
+        } else {
+          return;
+        }
+      }
+      
+      // Update quantity via AJAX
+      fetch('/cart/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: productId,
+          quantity: currentQuantity
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          if (currentQuantity === 0) {
+            location.reload();
+          } else {
+            quantitySpan.textContent = currentQuantity;
+            // Update total
+            const cartTotal = document.getElementById('cart-total');
+            if (cartTotal) {
+              cartTotal.textContent = '£' + data.totalAmount.toFixed(2);
+            }
+            // Update item total
+            const itemTotal = this.parentElement.nextElementSibling;
+            const price = parseFloat(this.closest('.flex').querySelector('.text-sm').textContent.replace('£', '').replace(' each', ''));
+            itemTotal.textContent = '£' + (price * currentQuantity).toFixed(2);
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error updating cart:', error);
+        alert('Failed to update cart. Please try again.');
+      });
+    });
+  });
+});
+</script>
