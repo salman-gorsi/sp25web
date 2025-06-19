@@ -1,0 +1,79 @@
+<!-- Bootstrap 5 CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/vehicles.css">
+
+<!-- Hero Section -->
+<section class="vehicle-detail-hero">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/vehicles">Vehicles</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><%= vehicle.name %></li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Vehicle Details -->
+<section class="vehicle-detail-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="vehicle-detail-image">
+                    <img src="<%= vehicle.imageUrl %>" alt="<%= vehicle.name %>" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="vehicle-detail-info">
+                    <div class="vehicle-detail-brand"><%= vehicle.brand %></div>
+                    <h1 class="vehicle-detail-name"><%= vehicle.name %></h1>
+                    <div class="vehicle-detail-price"><%= vehicle.priceFormatted %></div>
+                    
+                    <% if (vehicle.description) { %>
+                        <p class="lead mb-4"><%= vehicle.description %></p>
+                    <% } %>
+                    
+                    <div class="vehicle-specs">
+                        <h4>Vehicle Specifications</h4>
+                        <div class="spec-item">
+                            <span class="spec-label">Brand</span>
+                            <span class="spec-value"><%= vehicle.brand %></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Type</span>
+                            <span class="spec-value"><%= vehicle.type %></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Price</span>
+                            <span class="spec-value"><%= vehicle.priceFormatted %></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Availability</span>
+                            <span class="spec-value">
+                                <% if (vehicle.inStock) { %>
+                                    <span class="badge bg-success">In Stock</span>
+                                <% } else { %>
+                                    <span class="badge bg-danger">Out of Stock</span>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex">
+                        <button class="btn btn-vehicle btn-lg me-md-2" type="button" <%= !vehicle.inStock ? 'disabled' : '' %>>
+                            <i class="fas fa-shopping-cart me-2"></i>
+                            <%= vehicle.inStock ? 'Contact for Purchase' : 'Out of Stock' %>
+                        </button>
+                        <a href="/vehicles" class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-arrow-left me-2"></i>Back to Vehicles
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

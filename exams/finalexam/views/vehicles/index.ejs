@@ -1,0 +1,84 @@
+<!-- Bootstrap 5 CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/vehicles.css">
+
+<!-- Hero Section -->
+<section class="vehicles-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h1>Our Vehicle Collection</h1>
+                <p>Discover our premium selection of vehicles, from luxury sedans to powerful trucks</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filters Section -->
+<section class="vehicles-filters">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="filter-section">
+                    <h3>Filter by Type</h3>
+                    <div class="vehicle-type-filters">
+                        <a href="/vehicles" class="type-filter <%= !selectedType ? 'active' : '' %>">All Vehicles</a>
+                        <a href="/vehicles?type=Sedan" class="type-filter <%= selectedType === 'Sedan' ? 'active' : '' %>">Sedans</a>
+                        <a href="/vehicles?type=SUV" class="type-filter <%= selectedType === 'SUV' ? 'active' : '' %>">SUVs</a>
+                        <a href="/vehicles?type=Truck" class="type-filter <%= selectedType === 'Truck' ? 'active' : '' %>">Trucks</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vehicles Grid -->
+<section class="vehicles-grid">
+    <div class="container">
+        <% if (vehicles && vehicles.length > 0) { %>
+            <div class="row g-4">
+                <% vehicles.forEach(vehicle => { %>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card vehicle-card h-100">
+                            <div class="vehicle-image">
+                                <img src="<%= vehicle.imageUrl %>" alt="<%= vehicle.name %>" class="card-img-top">
+                                <% if (vehicle.featured) { %>
+                                    <span class="vehicle-badge featured">Featured</span>
+                                <% } else if (!vehicle.inStock) { %>
+                                    <span class="vehicle-badge out-of-stock">Out of Stock</span>
+                                <% } else { %>
+                                    <span class="vehicle-badge"><%= vehicle.type %></span>
+                                <% } %>
+                            </div>
+                            <div class="card-body vehicle-info d-flex flex-column">
+                                <div class="vehicle-brand"><%= vehicle.brand %></div>
+                                <h5 class="vehicle-name"><%= vehicle.name %></h5>
+                                <span class="vehicle-type"><%= vehicle.type %></span>
+                                <div class="vehicle-price"><%= vehicle.priceFormatted %></div>
+                                <% if (vehicle.description) { %>
+                                    <p class="vehicle-description"><%= vehicle.description.substring(0, 100) %>...</p>
+                                <% } %>
+                                <div class="mt-auto">
+                                    <a href="/vehicles/<%= vehicle._id %>" class="btn btn-vehicle w-100">
+                                        <i class="fas fa-eye me-2"></i>View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <div class="no-vehicles">
+                <i class="fas fa-car"></i>
+                <h3>No vehicles found</h3>
+                <p>Try selecting a different type or <a href="/vehicles">view all vehicles</a>.</p>
+                <a href="/vehicles" class="btn btn-vehicle">View All Vehicles</a>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
